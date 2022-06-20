@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodechat-deployment
+  labels:
+    app: nodechat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodechat
+  template:
+    metadata:
+      labels:
+        app: nodechat
+    spec:
+      containers:
+      - name: nodechat
+        image: srijaldocker/nodechat:1.0
+        ports:
+        - containerPort: 3000
