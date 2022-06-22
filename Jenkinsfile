@@ -24,7 +24,7 @@ pipeline {
 
     stage('Pushing Image') {
       environment {
-               registryCredential = 'dockerhublogin'
+               registryCredential = 'dockerhub'
            }
       steps{
         script {
@@ -39,7 +39,7 @@ pipeline {
       steps {
        
           withCredentials([
-        file(credentialsId: "kubeconfig", variable: 'KUBECRED')
+        file(credentialsId: "kubernetes_config", variable: 'KUBECRED')
         
     ]) {
         sh """
