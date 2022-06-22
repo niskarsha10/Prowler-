@@ -1,7 +1,7 @@
 pipeline {
 
   environment {
-    dockerimagename = "srijaldocker/nodechat"
+    dockerimagename = "niskarsha10/mytestproject"
     dockerImage = ""
   }
 
@@ -10,7 +10,7 @@ pipeline {
   stages {
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/SrijalKarmacharya/node-chat.git'
+        git 'https://github.com/niskarsha10/Prowler-.git'
       }
     }
 
@@ -51,7 +51,7 @@ pipeline {
       }
     }
   }
-    post {
+   /* post {
         success {
             slackSend channel: "#general", message: "Build Succeded: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
         }
@@ -59,7 +59,7 @@ pipeline {
             slackSend failOnError:true, message:"Build failed  - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
         }
     }
-
+*/
 
 
 }
