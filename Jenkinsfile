@@ -8,11 +8,7 @@ pipeline {
   agent any
 
   stages {
-    stage('Checkout Source') {
-      steps {
-        git 'https://github.com/niskarsha10/Prowler-.git'
-      }
-    }
+    
 
     stage('Build image') {
       steps{
