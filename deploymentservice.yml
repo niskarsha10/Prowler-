@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: nodechat
-        image: srijaldocker/nodechat:1.0
+        image: niskarsha10/nodejsproject
         ports:
         - containerPort: 3000
