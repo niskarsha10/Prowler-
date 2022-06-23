@@ -14,7 +14,10 @@ pipeline {
       steps {
           sh '''
            pwd
-           docker
+           docker exec -it jenkins_container_id bash
+           apt-get update && apt-get install -y docker.io 
+           docker run -v /var/run/docker.sock:/var/run/docker.sock -v $(which docker):$(which docker)  -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts
+           sudo docker
          '''
          }
     }
