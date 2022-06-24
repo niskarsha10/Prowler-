@@ -1,22 +1,25 @@
 pipeline {
 
   environment {
-    dockerimagename = "niskarsha10/nodejs_project"
+    dockerimagename = "niskarsha10/mytestproject"
     dockerImage = ""
   }
 
   agent any
 
   stages {
-    
+    stage('Checkout Source') {
+      steps {
+        git 'https://github.com/niskarsha10/Prowler-.git'
+      }
+    }
 
     stage('Build image') {
-      steps {
-          sh '''
-           pwd
-           docker
-         '''
-         }
+      steps{
+        script {
+          dockerImage = docker.build dockerimagename
+        }
+      }
     }
 
     stage('Pushing Image') {
